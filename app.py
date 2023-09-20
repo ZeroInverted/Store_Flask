@@ -1,10 +1,19 @@
 from flask import Flask
+from flask_cors import CORS
 from routes.category_routes import category_blueprint
 from routes.product_routes import product_blueprint
 from database import db
 from sqlalchemy import inspect
 
 store = Flask(__name__)
+CORS(store, resources={
+    r"/categories/*": {
+        "origins": "*"
+    },
+    r"/products/*": {
+        "origins": "*"
+    }
+})
 
 store.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///store.db"
 store.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
