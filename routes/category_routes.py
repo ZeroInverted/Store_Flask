@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from schemas.category_schema import CategoryInput
-from services.category_service import get_all_categories, add_category
+from services.category_services import get_all_categories, add_category
 
 category_blueprint = Blueprint("category", __name__)
 

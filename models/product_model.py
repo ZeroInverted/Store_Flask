@@ -6,7 +6,7 @@ class Product(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, index=True)
     name = db.Column(db.String, index=True)
-    price = db.Coluimn(db.Float)
+    price = db.Column(db.Float)
     quantity = db.Column(db.Integer)
     img_url = db.Column(db.String)
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))

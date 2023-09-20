@@ -1,5 +1,6 @@
 from flask import Flask
 from routes.category_routes import category_blueprint
+from routes.product_routes import product_blueprint
 from database import db
 from sqlalchemy import inspect
 
@@ -15,5 +16,6 @@ if __name__ == "__main__":
         inspector = inspect(db.engine)
         if not inspector.has_table('categories'):
             db.create_all()
+    store.register_blueprint(product_blueprint, url_prefix="/products")
     store.register_blueprint(category_blueprint, url_prefix="/categories")
     store.run()

@@ -16,7 +16,7 @@ def add_product(p_name, p_price, p_quantity, p_img_url, p_category_id):
 
 
 def get_product_by_id(id) -> dict:
-    return Product.to_json(Product.query.filter_by(Product.id == id).first())
+    return Product.to_json(Product.query.filter(Product.id == id).first())
 
 
 def update_product(id, p_name, p_price, p_quantity, p_img_url, p_category_id) -> dict:
